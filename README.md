@@ -2,7 +2,7 @@
 Here I'm parsing 1C language functions and procedures and extracting information from comments on them using ANTRL4.
 
 ## Usage
-compile_grammar.sh - rebuilds the Python parser module for grammar from files with .g4 extensions \n
+compile_grammar.sh - rebuilds the Python parser module for grammar from files with .g4 extensions  
 clear.sh - cleans up files
 
 ## Note
