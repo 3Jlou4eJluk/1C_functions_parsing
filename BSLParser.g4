@@ -162,10 +162,14 @@ subs             : sub+;
 sub              : procedure | function;
 procedure        : procDeclaration subCodeBlock ENDPROCEDURE_KEYWORD;
 function         : funcDeclaration subCodeBlock ENDFUNCTION_KEYWORD;
-procDeclaration  : (preprocessor | compilerDirective | annotation)* ASYNC_KEYWORD? PROCEDURE_KEYWORD subName LPAREN paramList? RPAREN EXPORT_KEYWORD?;
-funcDeclaration  : (preprocessor | compilerDirective | annotation)* ASYNC_KEYWORD? FUNCTION_KEYWORD subName LPAREN paramList? RPAREN EXPORT_KEYWORD?;
+procDeclaration  : beforeExecPart procedureDeclarationCore closedParamList EXPORT_KEYWORD?;
+funcDeclaration  : beforeExecPart functionDeclarationCore closedParamList EXPORT_KEYWORD?;
 subCodeBlock     : subVars? codeBlock;
 
+beforeExecPart              : (preprocessor | compilerDirective | annotation)*;
+procedureDeclarationCore    : ASYNC_KEYWORD? PROCEDURE_KEYWORD subName;
+functionDeclarationCore     : ASYNC_KEYWORD? FUNCTION_KEYWORD subName;
+closedParamList             : LPAREN paramList? RPAREN;
 
 // statements
 continueStatement : CONTINUE_KEYWORD;

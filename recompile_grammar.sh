@@ -1,9 +1,6 @@
 #!/bin/zsh
 
 rm *.py
-rm *.tokens
-rm *.interp
-
 
 antlr4 BSLParser.g4 BSLLexer.g4 BSLMethodDescriptionParser.g4 BSLMethodDescriptionLexer.g4 -Dlanguage=Python3 -visitor
 
@@ -26,3 +23,5 @@ echo "from antlr4 import ParserRuleContext as BSLParserRuleContext" > tempfile
 cat BSLMethodDescriptionParser.py >> tempfile
 mv tempfile BSLMethodDescriptionParser.py
 
+rm *.tokens
+rm *.interp

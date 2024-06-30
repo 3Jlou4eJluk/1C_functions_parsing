@@ -642,7 +642,7 @@ USE_IDENTIFIER : ( USE_LETTER | DIGIT )+ -> type(PREPROC_IDENTIFIER), popMode;
 
 mode DOT_MODE;
 DOT_WHITE_SPACE
-    : [ \t\f]+
+    : [ \t\f\n]+
     -> channel(HIDDEN),
        type(WHITE_SPACE)
     ;
